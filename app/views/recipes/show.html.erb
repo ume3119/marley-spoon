@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="show-card">
+    <div class="container-fliud">
+      <div class="wrapper row">
+        <div class="preview col-md-6">
+                      <img src="<%= https_image_url(@recipe.photo.url) %>" />
+        </div>
+        <div class="details col-md-6">
+          <h3 class="product-title"><%= @recipe.title %></h3>
+          <p class="product-description"><%= @recipe.description %></p>
+          <h5 class="price">Calories: <span><%= @recipe.calories %></span></h4>
+          <% if (defined? @recipe.chef) %>
+            <h5 class="price">Chef Name: <span><%= @recipe.chef.name %></span></h4>
+          <% end %>
+          <% if (defined? @recipe.tags) %>
+          <h6 class="sizes">Tags:
+            <% @recipe.tags.each do |tag| %>
+                <span class="size" data-toggle="tooltip" title="small"><%= tag.name %></span>
+            <% end %>
+          </h6>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
